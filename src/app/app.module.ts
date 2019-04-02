@@ -15,6 +15,7 @@ import { ShoppingListService } from 'src/app/shared/services/shopping.list.servi
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRouting } from './app-routing.module';
 import { RecipeLandingComponent } from './recipe/recipe-landing/recipe-landing.component';
+import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RecipeLandingComponent } from './recipe/recipe-landing/recipe-landing.c
     RecipeDetailComponent,
     DropdownDirective,
     PageNotFoundComponent,
-    RecipeLandingComponent
+    RecipeLandingComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,

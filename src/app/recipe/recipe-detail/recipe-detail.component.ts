@@ -12,16 +12,17 @@ import { Subscription } from 'rxjs';
 })
 export class RecipeDetailComponent implements OnInit, OnDestroy {
   recipe: Recipe;
+  index: number;
   subscriptionOnParams: Subscription;
 
   constructor(private recipeSrv: RecipeService, private shopSrv: ShoppingListService, private route: ActivatedRoute ) { }
 
   ngOnInit() {
     this.recipe = this.recipeSrv.getRecipe( this.route.snapshot.params.id );
-    console.log('this is selected>', this.recipe);
 
     this.subscriptionOnParams = this.route.params.subscribe(
       (params: Params)=>{ 
+        this.index = params.id;
         this.recipe = this.recipeSrv.getRecipe(+params.id); 
     });
   }

@@ -8,13 +8,16 @@ import { RecipeLandingComponent } from "./recipe/recipe-landing/recipe-landing.c
 import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
 
 import { RootComponent } from './root/root.component';
+import { RecipeEditComponent } from "./recipe/recipe-edit/recipe-edit.component";
 
 const allMyRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/recipes' },
   { path: 'recipes', component: RecipesComponent, children:
     [
       { path: '', component: RecipeLandingComponent },
-      { path: ':id', component: RecipeDetailComponent }
+      { path: 'new', component: RecipeEditComponent },
+      { path: ':id', component: RecipeDetailComponent },
+      { path: ':id/edit', component: RecipeEditComponent }
     ]
   },
   { path: 'shopping', component: ShoppingListComponent},

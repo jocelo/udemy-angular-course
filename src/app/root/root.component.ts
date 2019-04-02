@@ -13,8 +13,4 @@ export class RootComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
 }
