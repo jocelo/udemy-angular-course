@@ -1,25 +1,27 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <form [formGroup]="shoppingEditForm" (ngSubmit)="onFormSubmit()">
       <div class="row">
         <div class="col-sm-5 form-group">
-          <label for="name">Name</label>
-          <input id="name" 
-            type="text" 
-            class="form-control"
-            #nameInput>
+          <label for="ing_name">Ingredient Name:</label> <span class="error-label" *ngIf="!shoppingEditForm.get('ing_name').valid && shoppingEditForm.get('ing_name').touched">Required</span>
+          <input type="text"
+            name="ing_name"
+            id="ing_name"
+            formControlName="ing_name"
+            class="form-control">
         </div>
         <div class="col-sm-2 form-group">
-          <label for="amount">Amount</label>
-          <input id="amount"
-            type="text"  
-            class="form-control"
-            #amountInput>
+          <label for="ing_amount">Ingredient Amount:</label>
+          <input type="number"
+            id="ing_amount"
+            name="ing_amount"
+            formControlName="ing_amount"
+            class="form-control">
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <button class="btn btn-success" type="button" (click)="onAdd()">Add</button>
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit">Add</button>
           <button class="btn btn-danger" type="button">Delete</button>
           <button class="btn btn-primary" type="button">Clear</button>
         </div>

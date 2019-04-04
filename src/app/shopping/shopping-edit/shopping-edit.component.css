@@ -1,0 +1,10 @@
+input.ng-invalid.ng-touched {
+  box-shadow: 0 0 1pt 2px rgba(255, 0, 0, 0.5);
+}
+
+.error-label {
+  color: orangered;
+  margin-left: 10px;
+  font-size: 12px;
+  font-style: oblique;
+}
