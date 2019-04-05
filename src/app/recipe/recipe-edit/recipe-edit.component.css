@@ -1,0 +1,4 @@
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  box-shadow: 0 0 1pt 3px rgba(255, 0, 0, 0.5);
+} 

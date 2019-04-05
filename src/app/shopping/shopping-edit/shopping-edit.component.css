@@ -1,4 +1,4 @@
-input.ng-invalid.ng-touched {
+input.ng-invalid.ng-dirty {
   box-shadow: 0 0 1pt 2px rgba(255, 0, 0, 0.5);
 }
 
