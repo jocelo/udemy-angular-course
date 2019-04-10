@@ -9,19 +9,24 @@ import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.co
 
 import { RootComponent } from './root/root.component';
 import { RecipeEditComponent } from "./recipe/recipe-edit/recipe-edit.component";
+import { SignupComponent } from "./auth/signup/signup.component";
+import { SigninComponent } from "./auth/signin/signin.component";
+import { AuthGuard } from "./shared/guards/auth.guard";
 
 const allMyRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/recipes' },
   { path: 'recipes', component: RecipesComponent, children:
     [
       { path: '', component: RecipeLandingComponent },
-      { path: 'new', component: RecipeEditComponent },
+      { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard] },
       { path: ':id', component: RecipeDetailComponent },
-      { path: ':id/edit', component: RecipeEditComponent }
+      { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard] }
     ]
   },
   { path: 'shopping', component: ShoppingListComponent},
   { path: 'not-found', component: PageNotFoundComponent },
+  { path: 'signup', component: SignupComponent},
+  { path: 'login', component: SigninComponent },
   { path: '**', redirectTo: 'not-found' }
 ];
 

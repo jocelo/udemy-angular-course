@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RootComponent } from './root/root.component';
@@ -17,6 +17,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRouting } from './app-routing.module';
 import { RecipeLandingComponent } from './recipe/recipe-landing/recipe-landing.component';
 import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
+import { HttpModule } from '@angular/http';
+import { DataStorageService } from './shared/services/data.storage.service';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './shared/services/auth.service';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -32,14 +38,18 @@ import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component'
     DropdownDirective,
     PageNotFoundComponent,
     RecipeLandingComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     AppRouting,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    HttpModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

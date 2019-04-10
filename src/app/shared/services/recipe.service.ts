@@ -1,9 +1,14 @@
 import { Recipe } from "../models/recipe.model";
 import { Ingredient } from '../models/ingredient.model';
 import { Subject } from "rxjs";
+import { Injectable } from "@angular/core";
+import { DataStorageService } from "./data.storage.service";
 
+@Injectable()
 export class RecipeService {
   recipeChanged = new Subject<Recipe[]>();
+
+  constructor(private dataSrv: DataStorageService) {}
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -53,6 +58,11 @@ export class RecipeService {
 
   deleteRecipe(idx: number) {
     this.recipes.splice(idx,1);
+    this.notifyChanges();
+  }
+
+  setRecipes(newRecipeList: Recipe[]) {
+    this.recipes = newRecipeList;
     this.notifyChanges();
   }
 
